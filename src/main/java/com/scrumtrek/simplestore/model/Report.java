@@ -1,4 +1,4 @@
-package com.scrumtrek.simplestore;
+package com.scrumtrek.simplestore.model;
 
 import java.util.List;
 

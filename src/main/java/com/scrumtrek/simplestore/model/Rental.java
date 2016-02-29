@@ -1,4 +1,6 @@
-package com.scrumtrek.simplestore;
+package com.scrumtrek.simplestore.model;
+
+import com.scrumtrek.simplestore.Movie;
 
 public class Rental {
 	private Movie m_Movie;

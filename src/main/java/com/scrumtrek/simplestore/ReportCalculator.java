@@ -15,30 +15,8 @@ public class ReportCalculator {
         List<Report.MovieReport> movieReports = new ArrayList<>();
 
         for(Rental each: rentals) {
-            double thisAmount = 0;
-
             // Determine amounts for each line
-            switch(each.getMovie().getPriceCode()) {
-                case Regular:
-                    thisAmount += 2;
-                    if (each.getDaysRented() > 2)
-                    {
-                        thisAmount += (each.getDaysRented() - 2) * 1.5;
-                    }
-                    break;
-
-                case NewRelease:
-                    thisAmount += each.getDaysRented() * 3;
-                    break;
-
-                case Childrens:
-                    thisAmount += 1.5;
-                    if (each.getDaysRented() > 3)
-                    {
-                        thisAmount = (each.getDaysRented() - 3) * 1.5;
-                    }
-                    break;
-            }
+            Report.MovieReport report = each.getMovie().getPriceCode().getCalculator().calculate(each);
 
             // Add frequent renter points
             frequentRenterPoints++;
@@ -51,8 +29,8 @@ public class ReportCalculator {
 
             // Show figures for this rental
 
-            movieReports.add(new Report.MovieReport(each.getMovie().getTitle(), thisAmount));
-            totalAmount += thisAmount;
+            movieReports.add(report);
+            totalAmount += report.getAmount();
         }
 
 

@@ -131,7 +131,7 @@ public class CustomerTest {
         //endregion
 
         //region Then
-        assertThat(result).contains("Amount owed is 1.5");
+        assertThat(result).contains("Amount owed is 3");
         assertThat(result).contains("You earned 1 frequent renter points.");
         //endregion
     }

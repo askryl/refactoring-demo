@@ -117,4 +117,22 @@ public class CustomerTest {
         assertThat(result).contains("You earned 1 frequent renter points.");
         //endregion
     }
+
+    @Test
+    public void shouldChildrenMovieAmountAndFreqPointsWhenGetStatementDays4() {
+
+        //region Given
+        Customer sut = new Customer("Test customer");
+        sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.Childrens), 4));
+        //endregion
+
+        //region When
+        String result = sut.Statement();
+        //endregion
+
+        //region Then
+        assertThat(result).contains("Amount owed is 1.5");
+        assertThat(result).contains("You earned 1 frequent renter points.");
+        //endregion
+    }
 }

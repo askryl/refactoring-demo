@@ -1,7 +1,8 @@
 package com.scrumtrek.simplestore;
 
+import com.scrumtrek.simplestore.pricecodes.PriceCodes;
 import org.junit.Test;
-import static org.fest.assertions.Assertions.*;
+
 import static org.junit.Assert.assertEquals;
 
 /**

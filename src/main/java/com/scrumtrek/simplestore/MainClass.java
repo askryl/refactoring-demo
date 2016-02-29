@@ -1,5 +1,7 @@
 package com.scrumtrek.simplestore;
 
+import com.scrumtrek.simplestore.pricecodes.PriceCodes;
+
 class MainClass {
 	 static void Main(String[] args) {
 		// Create movies

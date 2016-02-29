@@ -1,5 +1,7 @@
 package com.scrumtrek.simplestore;
 
+import com.scrumtrek.simplestore.pricecodes.PriceCodes;
+
 import java.util.ArrayList;
 import java.util.List;
 

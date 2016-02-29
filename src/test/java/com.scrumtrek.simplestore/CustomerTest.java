@@ -1,8 +1,7 @@
 package com.scrumtrek.simplestore;
 
+import com.scrumtrek.simplestore.pricecodes.PriceCodes;
 import org.junit.Test;
-
-import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 import static org.fest.assertions.Assertions.*;
@@ -132,6 +131,42 @@ public class CustomerTest {
 
         //region Then
         assertThat(result).contains("Amount owed is 3");
+        assertThat(result).contains("You earned 1 frequent renter points.");
+        //endregion
+    }
+
+    @Test
+    public void shouldXXXMovieAmountAndFreqPointsWhenGetStatementDays1() {
+
+        //region Given
+        Customer sut = new Customer("Test customer");
+        sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.XXX), 1));
+        //endregion
+
+        //region When
+        String result = sut.Statement();
+        //endregion
+
+        //region Then
+        assertThat(result).contains("Amount owed is 2");
+        assertThat(result).contains("You earned 1 frequent renter points.");
+        //endregion
+    }
+
+    @Test
+    public void shouldXXXMovieAmountAndFreqPointsWhenGetStatementDays2() {
+
+        //region Given
+        Customer sut = new Customer("Test customer");
+        sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.XXX), 2));
+        //endregion
+
+        //region When
+        String result = sut.Statement();
+        //endregion
+
+        //region Then
+        assertThat(result).contains("Amount owed is 3.5");
         assertThat(result).contains("You earned 1 frequent renter points.");
         //endregion
     }

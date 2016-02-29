@@ -1,7 +1,7 @@
 package com.scrumtrek.simplestore.pricecodes;
 
-import com.scrumtrek.simplestore.Rental;
-import com.scrumtrek.simplestore.Report;
+import com.scrumtrek.simplestore.model.Rental;
+import com.scrumtrek.simplestore.model.Report;
 
 /**
  * Created by AnnaEeePC on 29.02.2016.

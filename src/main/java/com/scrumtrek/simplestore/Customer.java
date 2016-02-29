@@ -1,5 +1,8 @@
 package com.scrumtrek.simplestore;
 
+import com.scrumtrek.simplestore.model.Rental;
+import com.scrumtrek.simplestore.model.Report;
+
 import java.util.ArrayList;
 import java.util.List;
 

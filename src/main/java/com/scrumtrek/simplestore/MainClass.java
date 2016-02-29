@@ -1,5 +1,6 @@
 package com.scrumtrek.simplestore;
 
+import com.scrumtrek.simplestore.model.Rental;
 import com.scrumtrek.simplestore.pricecodes.PriceCodes;
 
 class MainClass {

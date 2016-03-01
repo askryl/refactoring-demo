@@ -5,6 +5,7 @@ import com.scrumtrek.simplestore.model.Customer;
 import com.scrumtrek.simplestore.model.Movie;
 import com.scrumtrek.simplestore.model.Rental;
 import com.scrumtrek.simplestore.pricecodes.PriceCodes;
+import junit.framework.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -27,6 +28,18 @@ public class JsonReportGeneratorTest {
         sut.addRental(r);
         //region When
         String result = reportGenerator.createReport(sut, new JsonReportFormatter()).toString();
-        System.out.println(result);
+
+        String expectedResult = "{\n" +
+                "\tcustomer: Test customer\n" +
+                "\trentals: {\n" +
+                "\t\trental: {\n" +
+                "\t\t\tmovie: MovieTitle1\n" +
+                "\t\t\tmovie: MovieTitle2\n" +
+                "\t\t}\n" +
+                "\t}\n" +
+                "\tamount: 18.0\n" +
+                "}\n";
+        Assert.assertEquals(expectedResult, result);
+
     }
 }

@@ -35,7 +35,7 @@ public class CustomerTest {
 
         //region Given
         Customer sut = new Customer("Test customer");
-        sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.Regular, 1), 1));
+        sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.Regular, 1)));
         //endregion
 
         //region When
@@ -44,7 +44,6 @@ public class CustomerTest {
 
         //region Then
         assertThat(result).contains("Amount owed is 2");
-//        assertThat(result).contains("You earned 1 frequent renter points.");
         //endregion
     }
 
@@ -53,7 +52,7 @@ public class CustomerTest {
 
         //region Given
         Customer sut = new Customer("Test customer");
-        sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.Regular, 3), 3));
+        sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.Regular, 3)));
         //endregion
 
         //region When
@@ -62,7 +61,6 @@ public class CustomerTest {
 
         //region Then
         assertThat(result).contains("Amount owed is 3.5");
-//        assertThat(result).contains("You earned 1 frequent renter points.");
         //endregion
     }
 
@@ -71,7 +69,7 @@ public class CustomerTest {
 
         //region Given
         Customer sut = new Customer("Test customer");
-        sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.NewRelease, 1), 1));
+        sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.NewRelease, 1)));
         //endregion
 
         //region When
@@ -80,7 +78,6 @@ public class CustomerTest {
 
         //region Then
         assertThat(result).contains("Amount owed is 3");
-//        assertThat(result).contains("You earned 1 frequent renter points.");
         //endregion
     }
 
@@ -89,7 +86,7 @@ public class CustomerTest {
 
         //region Given
         Customer sut = new Customer("Test customer");
-        sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.NewRelease, 3), 3));
+        sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.NewRelease, 3)));
         //endregion
 
         //region When
@@ -98,7 +95,6 @@ public class CustomerTest {
 
         //region Then
         assertThat(result).contains("Amount owed is 9");
-//        assertThat(result).contains("You earned 2 frequent renter points.");
         //endregion
     }
 
@@ -107,7 +103,7 @@ public class CustomerTest {
 
         //region Given
         Customer sut = new Customer("Test customer");
-        sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.Childrens, 1), 1));
+        sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.Childrens, 1)));
         //endregion
 
         //region When
@@ -116,7 +112,6 @@ public class CustomerTest {
 
         //region Then
         assertThat(result).contains("Amount owed is 1.5");
-//        assertThat(result).contains("You earned 1 frequent renter points.");
         //endregion
     }
 
@@ -125,7 +120,7 @@ public class CustomerTest {
 
         //region Given
         Customer sut = new Customer("Test customer");
-        sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.Childrens, 4), 4));
+        sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.Childrens, 4)));
         //endregion
 
         //region When
@@ -134,7 +129,6 @@ public class CustomerTest {
 
         //region Then
         assertThat(result).contains("Amount owed is 3");
-//        assertThat(result).contains("You earned 1 frequent renter points.");
         //endregion
     }
 
@@ -143,7 +137,7 @@ public class CustomerTest {
 
         //region Given
         Customer sut = new Customer("Test customer");
-        sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.XXX, 1), 1));
+        sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.XXX, 1)));
         //endregion
 
         //region When
@@ -152,7 +146,6 @@ public class CustomerTest {
 
         //region Then
         assertThat(result).contains("Amount owed is 2");
-//        assertThat(result).contains("You earned 1 frequent renter points.");
         //endregion
     }
 
@@ -161,7 +154,7 @@ public class CustomerTest {
 
         //region Given
         Customer sut = new Customer("Test customer");
-        sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.XXX, 2), 2));
+        sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.XXX, 2)));
         //endregion
 
         //region When
@@ -170,7 +163,6 @@ public class CustomerTest {
 
         //region Then
         assertThat(result).contains("Amount owed is 3.5");
-//        assertThat(result).contains("You earned 1 frequent renter points.");
         //endregion
     }
 }

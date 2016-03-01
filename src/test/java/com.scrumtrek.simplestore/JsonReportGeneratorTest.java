@@ -7,6 +7,9 @@ import com.scrumtrek.simplestore.model.Rental;
 import com.scrumtrek.simplestore.pricecodes.PriceCodes;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by askryl on 01.03.16.
  */
@@ -17,8 +20,11 @@ public class JsonReportGeneratorTest {
         Customer sut = new Customer("Test customer");
         ReportGenerator reportGenerator = new ReportGenerator();
         //endregion
-        sut.addRental(new Rental(new Movie("MovieTitle1", PriceCodes.NewRelease, 3)));
-        sut.addRental(new Rental(new Movie("MovieTitle2", PriceCodes.NewRelease, 3)));
+        List<Movie> list = new ArrayList<>();
+        list.add(new Movie("MovieTitle1", PriceCodes.NewRelease, 3));
+        list.add(new Movie("MovieTitle2", PriceCodes.NewRelease, 3));
+        Rental r = new Rental(list);
+        sut.addRental(r);
         //region When
         String result = reportGenerator.createReport(sut, new JsonReportFormatter()).toString();
         System.out.println(result);

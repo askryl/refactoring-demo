@@ -21,9 +21,11 @@ public class JsonReportFormatter extends ReportFormatter {
         StringBuilder sb = new StringBuilder("\trentals: {");
 
         for (Report.RentalReport rr : report.getRentalReports()) {
+            sb.append("\n\t\trental: {");
             for (Report.MovieReport mr : rr.getMovieReports()) {
-                sb.append("\n\t\tmovie: " + mr.getMovieTitle());
+                sb.append("\n\t\t\tmovie: " + mr.getMovieTitle());
             }
+            sb.append("\n\t\t}");
         }
         sb.append("\n");
         return sb.toString();

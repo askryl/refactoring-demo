@@ -13,12 +13,20 @@ public class JsonReportFormatter extends ReportFormatter {
 
     @Override
     protected Object formatHeader(Report report) {
-        return "\tcustomer: " + report.getCustomerName() + ",\n" ;
+        return "\tcustomer: " + report.getCustomerName() + "\n" ;
     }
 
     @Override
     protected Object formatBody(Report report) {
-        return "\trentals: {\n";
+        StringBuilder sb = new StringBuilder("\trentals: {");
+
+        for (Report.RentalReport rr : report.getRentalReports()) {
+            for (Report.MovieReport mr : rr.getMovieReports()) {
+                sb.append("\n\t\tmovie: " + mr.getMovieTitle());
+            }
+        }
+        sb.append("\n");
+        return sb.toString();
     }
 
     @Override
@@ -28,7 +36,7 @@ public class JsonReportFormatter extends ReportFormatter {
 
     @Override
     protected Object formatFooter(Report report) {
-        return "\t},\n\tamount: " + report.getTotalAmount();
+        return "\t}\n\tamount: " + report.getTotalAmount();
     }
 
     @Override

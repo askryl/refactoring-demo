@@ -1,4 +1,4 @@
-package com.scrumtrek.simplestore.model;
+package com.scrumtrek.simplestore;
 
 import java.util.List;
 
@@ -9,12 +9,12 @@ public class Report {
 
     private double totalAmount = 0;
     private int frequentRenterPoints = 0;
-    private List<MovieReport> movieReports;
+    private List<RentalReport> rentalReports;
 
-    public Report(double totalAmount, int frequentRenterPoints, List<MovieReport> movieReports) {
+    public Report(double totalAmount, int frequentRenterPoints, List<RentalReport> movieReports) {
         this.totalAmount = totalAmount;
         this.frequentRenterPoints = frequentRenterPoints;
-        this.movieReports = movieReports;
+        this.rentalReports = movieReports;
     }
 
     public double getTotalAmount() {
@@ -33,12 +33,38 @@ public class Report {
         this.frequentRenterPoints = frequentRenterPoints;
     }
 
-    public List<MovieReport> getMovieReports() {
-        return movieReports;
+    public List<RentalReport> getRentalReports() {
+        return rentalReports;
     }
 
-    public void setMovieReports(List<MovieReport> movieReports) {
-        this.movieReports = movieReports;
+    public void setRentalReports(List<RentalReport> rentalReports) {
+        this.rentalReports = rentalReports;
+    }
+
+    public static class RentalReport {
+        private double amount;
+        private List<MovieReport> movieReports;
+
+        public RentalReport(double amount, List<MovieReport> movieReports) {
+            this.amount = amount;
+            this.movieReports = movieReports;
+        }
+
+        public double getAmount() {
+            return amount;
+        }
+
+        public void setAmount(double amount) {
+            this.amount = amount;
+        }
+
+        public List<MovieReport> getMovieReports() {
+            return movieReports;
+        }
+
+        public void setMovieReports(List<MovieReport> movieReports) {
+            this.movieReports = movieReports;
+        }
     }
 
     public static class MovieReport {

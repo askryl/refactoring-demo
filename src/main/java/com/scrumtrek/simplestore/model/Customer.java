@@ -1,7 +1,7 @@
-package com.scrumtrek.simplestore;
+package com.scrumtrek.simplestore.model;
 
-import com.scrumtrek.simplestore.model.Rental;
-import com.scrumtrek.simplestore.model.Report;
+import com.scrumtrek.simplestore.Report;
+import com.scrumtrek.simplestore.ReportCalculator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,9 +28,15 @@ public class Customer {
 		Report report = new ReportCalculator().calculate(m_Rentals);
 				
 		String result = "Rental record for " + m_Name + "\n";
-		for (Report.MovieReport movieReport: report.getMovieReports()) {
-			result += "\t" + movieReport.getMovieTitle() + "\t" + movieReport.getAmount() + "\n";
+		for (Report.RentalReport rentalReport: report.getRentalReports()) {
+			for (Report.MovieReport movieReport: rentalReport.getMovieReports()) {
+				result += "\t" + movieReport.getMovieTitle() + "\t" + movieReport.getAmount() + "\n";
+			}
 		}
+
+//		for (Report.RentalReport movieReport: report.getRentalReports()) {
+//			result += "\t" + movieReport.getMovieTitle() + "\t" + movieReport.getAmount() + "\n";
+//		}
 		result += "Amount owed is " + report.getTotalAmount() + "\n";
 		result += "You earned " + report.getFrequentRenterPoints() + " frequent renter points.";
 		return result;

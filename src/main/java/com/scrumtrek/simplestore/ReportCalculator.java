@@ -1,8 +1,7 @@
 package com.scrumtrek.simplestore;
 
+import com.scrumtrek.simplestore.model.Movie;
 import com.scrumtrek.simplestore.model.Rental;
-import com.scrumtrek.simplestore.model.Report;
-import com.scrumtrek.simplestore.pricecodes.PriceCodes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,28 +15,39 @@ public class ReportCalculator {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
 
-        List<Report.MovieReport> movieReports = new ArrayList<>();
+        List<Report.RentalReport> rentalReports = new ArrayList<>();
 
-        for(Rental each: rentals) {
-            // Determine amounts for each line
-            Report.MovieReport report = each.getMovie().getPriceCode().getCalculator().calculate(each);
+        for(Rental rental: rentals) {
+            List<Report.MovieReport> movieReports = new ArrayList<>();
+            double rentalAmount = 0;
+            for (Movie movie: rental.getMovies()) {
+                Report.MovieReport movieReport = movie.getPriceCode().getCalculator().calculate(movie);
+                movieReports.add(movieReport);
+                rentalAmount += movieReport.getAmount();
+            }
+            Report.RentalReport rentalReport = new Report.RentalReport(rentalAmount, movieReports);
+            rentalReports.add(rentalReport);
+            totalAmount += rentalReport.getAmount();
+
+            // Determine amounts for rental line
+//            Report.RentalReport report = rental.getMovie().getPriceCode().getCalculator().calculate(rental);
 
             // Add frequent renter points
-            frequentRenterPoints++;
+//            frequentRenterPoints++;
 
             // Add bonus for a two-day new-release rental
-            if ((each.getMovie().getPriceCode() == PriceCodes.NewRelease) && (each.getDaysRented() > 1))
-            {
-                frequentRenterPoints ++;
-            }
+//            if ((rental.getMovie().getPriceCode() == PriceCodes.NewRelease) && (rental.getDaysRented() > 1))
+//            {
+//                frequentRenterPoints ++;
+//            }
 
             // Show figures for this rental
 
-            movieReports.add(report);
-            totalAmount += report.getAmount();
+//            movieReports.add(report);
+//            totalAmount += report.getAmount();
         }
 
 
-        return new Report(totalAmount, frequentRenterPoints, movieReports);
+        return new Report(totalAmount, frequentRenterPoints, rentalReports);
     }
 }

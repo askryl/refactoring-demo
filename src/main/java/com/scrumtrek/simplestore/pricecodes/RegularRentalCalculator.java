@@ -1,7 +1,7 @@
 package com.scrumtrek.simplestore.pricecodes;
 
-import com.scrumtrek.simplestore.model.Rental;
-import com.scrumtrek.simplestore.model.Report;
+import com.scrumtrek.simplestore.model.Movie;
+import com.scrumtrek.simplestore.Report;
 
 /**
  * Created by AnnaEeePC on 29.02.2016.
@@ -9,12 +9,12 @@ import com.scrumtrek.simplestore.model.Report;
 public class RegularRentalCalculator extends MovieReportCalculator {
 
     @Override
-    public Report.MovieReport calculate(Rental rental) {
+    public Report.MovieReport calculate(Movie movie) {
         double thisAmount = 2;
-        if (rental.getDaysRented() > 2)
+        if (movie.getDaysRented() > 2)
         {
-            thisAmount += (rental.getDaysRented() - 2) * 1.5;
+            thisAmount += (movie.getDaysRented() - 2) * 1.5;
         }
-        return new Report.MovieReport(rental.getMovie().getTitle(), thisAmount);
+        return new Report.MovieReport(movie.getTitle(), thisAmount);
     }
 }

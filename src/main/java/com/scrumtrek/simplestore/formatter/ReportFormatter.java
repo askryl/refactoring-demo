@@ -1,7 +1,6 @@
 package com.scrumtrek.simplestore.formatter;
 
 import com.scrumtrek.simplestore.Report;
-import com.sun.org.apache.regexp.internal.RE;
 
 /**
  * Created by AnnaEeePC on 01.03.2016.

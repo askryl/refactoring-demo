@@ -32,12 +32,5 @@ public class Customer {
 		m_Rentals.add(arg);
 	}
 
-	public String Statement()
-	{
-		Report report = new ReportCalculator().calculate(this);
-		ReportFormatter formatter = new StringReportFormatter();
-
-		return formatter.formatReport(report, 1).toString();
-	}
 }
 

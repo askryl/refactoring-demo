@@ -19,10 +19,11 @@ public class CustomerTest {
 
         //region Given
         Customer sut = new Customer("Test customer");
+        ReportGenerator reportGenerator = new ReportGenerator();
         //endregion
 
         //region When
-        String result = sut.Statement();
+        String result = reportGenerator.createReport(sut).toString();
         //endregion
 
         //region Then
@@ -36,10 +37,11 @@ public class CustomerTest {
         //region Given
         Customer sut = new Customer("Test customer");
         sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.Regular, 1)));
+        ReportGenerator reportGenerator = new ReportGenerator();
         //endregion
 
         //region When
-        String result = sut.Statement();
+        String result = reportGenerator.createReport(sut).toString();
         //endregion
 
         //region Then
@@ -53,10 +55,11 @@ public class CustomerTest {
         //region Given
         Customer sut = new Customer("Test customer");
         sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.Regular, 3)));
+        ReportGenerator reportGenerator = new ReportGenerator();
         //endregion
 
         //region When
-        String result = sut.Statement();
+        String result = reportGenerator.createReport(sut).toString();
         //endregion
 
         //region Then
@@ -70,10 +73,11 @@ public class CustomerTest {
         //region Given
         Customer sut = new Customer("Test customer");
         sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.NewRelease, 1)));
+        ReportGenerator reportGenerator = new ReportGenerator();
         //endregion
 
         //region When
-        String result = sut.Statement();
+        String result = reportGenerator.createReport(sut).toString();
         //endregion
 
         //region Then
@@ -87,10 +91,11 @@ public class CustomerTest {
         //region Given
         Customer sut = new Customer("Test customer");
         sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.NewRelease, 3)));
+        ReportGenerator reportGenerator = new ReportGenerator();
         //endregion
 
         //region When
-        String result = sut.Statement();
+        String result = reportGenerator.createReport(sut).toString();
         //endregion
 
         //region Then
@@ -104,10 +109,11 @@ public class CustomerTest {
         //region Given
         Customer sut = new Customer("Test customer");
         sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.Childrens, 1)));
+        ReportGenerator reportGenerator = new ReportGenerator();
         //endregion
 
         //region When
-        String result = sut.Statement();
+        String result = reportGenerator.createReport(sut).toString();
         //endregion
 
         //region Then
@@ -121,10 +127,11 @@ public class CustomerTest {
         //region Given
         Customer sut = new Customer("Test customer");
         sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.Childrens, 4)));
+        ReportGenerator reportGenerator = new ReportGenerator();
         //endregion
 
         //region When
-        String result = sut.Statement();
+        String result = reportGenerator.createReport(sut).toString();
         //endregion
 
         //region Then
@@ -138,10 +145,11 @@ public class CustomerTest {
         //region Given
         Customer sut = new Customer("Test customer");
         sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.XXX, 1)));
+        ReportGenerator reportGenerator = new ReportGenerator();
         //endregion
 
         //region When
-        String result = sut.Statement();
+        String result = reportGenerator.createReport(sut).toString();
         //endregion
 
         //region Then
@@ -155,10 +163,11 @@ public class CustomerTest {
         //region Given
         Customer sut = new Customer("Test customer");
         sut.addRental(new Rental(new Movie("MovieTitle", PriceCodes.XXX, 2)));
+        ReportGenerator reportGenerator = new ReportGenerator();
         //endregion
 
         //region When
-        String result = sut.Statement();
+        String result = reportGenerator.createReport(sut).toString();
         //endregion
 
         //region Then

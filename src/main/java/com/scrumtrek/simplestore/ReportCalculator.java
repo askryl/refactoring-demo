@@ -1,5 +1,6 @@
 package com.scrumtrek.simplestore;
 
+import com.scrumtrek.simplestore.model.Customer;
 import com.scrumtrek.simplestore.model.Movie;
 import com.scrumtrek.simplestore.model.Rental;
 
@@ -11,13 +12,13 @@ import java.util.List;
  */
 public class ReportCalculator {
 
-    public Report calculate(List<Rental> rentals) {
+    public Report calculate(Customer customer) {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
 
         List<Report.RentalReport> rentalReports = new ArrayList<>();
 
-        for(Rental rental: rentals) {
+        for(Rental rental: customer.getM_Rentals()) {
             List<Report.MovieReport> movieReports = new ArrayList<>();
             double rentalAmount = 0;
             for (Movie movie: rental.getMovies()) {
@@ -31,6 +32,6 @@ public class ReportCalculator {
         }
 
 
-        return new Report(totalAmount, frequentRenterPoints, rentalReports);
+        return new Report(totalAmount, frequentRenterPoints, rentalReports, customer.getName());
     }
 }

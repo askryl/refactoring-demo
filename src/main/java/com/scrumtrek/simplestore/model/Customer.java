@@ -2,6 +2,8 @@ package com.scrumtrek.simplestore.model;
 
 import com.scrumtrek.simplestore.Report;
 import com.scrumtrek.simplestore.ReportCalculator;
+import com.scrumtrek.simplestore.formatter.ReportFormatter;
+import com.scrumtrek.simplestore.formatter.StringReportFormatter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,13 @@ public class Customer {
 		return m_Name;
 	}
 
+	public String getM_Name() {
+		return m_Name;
+	}
+
+	public List<Rental> getM_Rentals() {
+		return m_Rentals;
+	}
 
 	public void addRental(Rental arg){
 		m_Rentals.add(arg);
@@ -25,21 +34,10 @@ public class Customer {
 
 	public String Statement()
 	{
-		Report report = new ReportCalculator().calculate(m_Rentals);
-				
-		String result = "Rental record for " + m_Name + "\n";
-		for (Report.RentalReport rentalReport: report.getRentalReports()) {
-			for (Report.MovieReport movieReport: rentalReport.getMovieReports()) {
-				result += "\t" + movieReport.getMovieTitle() + "\t" + movieReport.getAmount() + "\n";
-			}
-		}
+		Report report = new ReportCalculator().calculate(this);
+		ReportFormatter formatter = new StringReportFormatter();
 
-//		for (Report.RentalReport movieReport: report.getRentalReports()) {
-//			result += "\t" + movieReport.getMovieTitle() + "\t" + movieReport.getAmount() + "\n";
-//		}
-		result += "Amount owed is " + report.getTotalAmount() + "\n";
-		result += "You earned " + report.getFrequentRenterPoints() + " frequent renter points.";
-		return result;
+		return formatter.formatReport(report, 1).toString();
 	}
 }
 

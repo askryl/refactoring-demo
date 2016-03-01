@@ -10,11 +10,13 @@ public class Report {
     private double totalAmount = 0;
     private int frequentRenterPoints = 0;
     private List<RentalReport> rentalReports;
+    private String customerName;
 
-    public Report(double totalAmount, int frequentRenterPoints, List<RentalReport> movieReports) {
+    public Report(double totalAmount, int frequentRenterPoints, List<RentalReport> movieReports, String customerName) {
         this.totalAmount = totalAmount;
         this.frequentRenterPoints = frequentRenterPoints;
         this.rentalReports = movieReports;
+        this.customerName = customerName;
     }
 
     public double getTotalAmount() {
@@ -39,6 +41,14 @@ public class Report {
 
     public void setRentalReports(List<RentalReport> rentalReports) {
         this.rentalReports = rentalReports;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
     public static class RentalReport {

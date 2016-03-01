@@ -25,6 +25,7 @@ public class JsonReportFormatter extends ReportFormatter {
             for (Report.MovieReport mr : rr.getMovieReports()) {
                 sb.append("\n\t\t\tmovie: " + mr.getMovieTitle());
             }
+            sb.append("\n\t\t\tamount: " + rr.getAmount());
             sb.append("\n\t\t}");
         }
         sb.append("\n");

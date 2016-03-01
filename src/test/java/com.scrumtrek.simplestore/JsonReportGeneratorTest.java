@@ -35,6 +35,7 @@ public class JsonReportGeneratorTest {
                 "\t\trental: {\n" +
                 "\t\t\tmovie: MovieTitle1\n" +
                 "\t\t\tmovie: MovieTitle2\n" +
+                "\t\t\tamount: 18.0\n" +
                 "\t\t}\n" +
                 "\t}\n" +
                 "\tamount: 18.0\n" +

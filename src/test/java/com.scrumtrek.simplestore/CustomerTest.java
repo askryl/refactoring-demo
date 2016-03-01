@@ -1,5 +1,6 @@
 package com.scrumtrek.simplestore;
 
+import com.scrumtrek.simplestore.formatter.StringReportFormatter;
 import com.scrumtrek.simplestore.model.Customer;
 import com.scrumtrek.simplestore.model.Movie;
 import com.scrumtrek.simplestore.model.Rental;
@@ -23,7 +24,7 @@ public class CustomerTest {
         //endregion
 
         //region When
-        String result = reportGenerator.createReport(sut).toString();
+        String result = reportGenerator.createReport(sut, new StringReportFormatter()).toString();
         //endregion
 
         //region Then
@@ -41,7 +42,7 @@ public class CustomerTest {
         //endregion
 
         //region When
-        String result = reportGenerator.createReport(sut).toString();
+        String result = reportGenerator.createReport(sut, new StringReportFormatter()).toString();
         //endregion
 
         //region Then
@@ -59,7 +60,7 @@ public class CustomerTest {
         //endregion
 
         //region When
-        String result = reportGenerator.createReport(sut).toString();
+        String result = reportGenerator.createReport(sut, new StringReportFormatter()).toString();
         //endregion
 
         //region Then
@@ -77,7 +78,7 @@ public class CustomerTest {
         //endregion
 
         //region When
-        String result = reportGenerator.createReport(sut).toString();
+        String result = reportGenerator.createReport(sut, new StringReportFormatter()).toString();
         //endregion
 
         //region Then
@@ -95,7 +96,7 @@ public class CustomerTest {
         //endregion
 
         //region When
-        String result = reportGenerator.createReport(sut).toString();
+        String result = reportGenerator.createReport(sut, new StringReportFormatter()).toString();
         //endregion
 
         //region Then
@@ -113,7 +114,7 @@ public class CustomerTest {
         //endregion
 
         //region When
-        String result = reportGenerator.createReport(sut).toString();
+        String result = reportGenerator.createReport(sut, new StringReportFormatter()).toString();
         //endregion
 
         //region Then
@@ -131,7 +132,7 @@ public class CustomerTest {
         //endregion
 
         //region When
-        String result = reportGenerator.createReport(sut).toString();
+        String result = reportGenerator.createReport(sut, new StringReportFormatter()).toString();
         //endregion
 
         //region Then
@@ -149,7 +150,7 @@ public class CustomerTest {
         //endregion
 
         //region When
-        String result = reportGenerator.createReport(sut).toString();
+        String result = reportGenerator.createReport(sut, new StringReportFormatter()).toString();
         //endregion
 
         //region Then
@@ -167,7 +168,7 @@ public class CustomerTest {
         //endregion
 
         //region When
-        String result = reportGenerator.createReport(sut).toString();
+        String result = reportGenerator.createReport(sut, new StringReportFormatter()).toString();
         //endregion
 
         //region Then

@@ -9,10 +9,8 @@ import com.scrumtrek.simplestore.model.Customer;
  */
 public class ReportGenerator {
 
-    public Object createReport(Customer customer) {
+    public Object createReport(Customer customer, ReportFormatter formatter) {
         Report report = new ReportCalculator().calculate(customer);
-        ReportFormatter formatter = new StringReportFormatter();
-
         return formatter.formatReport(report, 1).toString();
     }
 }
